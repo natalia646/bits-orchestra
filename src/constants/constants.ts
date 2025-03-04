@@ -13,3 +13,4 @@ export const buttons = [
   { action: "Delete", click: () => {} },
   { action: "Deactivate", click: () => {} },
 ];
+
