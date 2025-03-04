@@ -1,0 +1,44 @@
+{
+    "books": [
+        {
+            "id": "1",
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "category": "Classic",
+            "isbn": "9780743273565",
+            "createdAt": "12 March 2022, 8:35AM",
+            "modifiedAt": "13 March 2022, 1:48PM",
+            "active": true
+        },
+        {
+            "id": "2",
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "category": "Fiction",
+            "isbn": "9780061120084",
+            "createdAt": "5 April 2021, 10:15AM",
+            "modifiedAt": "--",
+            "active": true
+        },
+        {
+            "id": "3",
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "category": "Fiction",
+            "isbn": "9780316769488",
+            "createdAt": "15 August 2019, 9:00AM",
+            "modifiedAt": "20 September 2019, 3:55PM",
+            "active": true
+        },
+        {
+            "id": "4",
+            "title": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "category": "Romance",
+            "isbn": "9780141439518",
+            "createdAt": "30 January 2023, 11:10AM",
+            "modifiedAt": "--",
+            "active": true
+        }
+    ]
+}
