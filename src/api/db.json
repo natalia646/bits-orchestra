@@ -18,7 +18,7 @@
             "isbn": "9780061120084",
             "createdAt": "5 April 2021, 10:15AM",
             "modifiedAt": "--",
-            "active": true
+            "active": false
         },
         {
             "id": "3",
@@ -38,7 +38,7 @@
             "isbn": "9780141439518",
             "createdAt": "30 January 2023, 11:10AM",
             "modifiedAt": "--",
-            "active": true
+            "active": false
         }
     ]
 }
