@@ -2,13 +2,13 @@ import { TopDashboard } from "../components/TopDashboard/TopDashboard";
 import { Table } from "../components/Table/Table";
 import { useBookContext } from "../hooks/useBookContext";
 import { useState } from "react";
-import { Dropdown } from "../types/Dropdown.type";
+import { Filter } from "../types/Filter.type";
 import { filterBooks } from "../utils/filterBooks";
 
 export const Dashboard = () => {
   const { books } = useBookContext();
 
-  const [filterBy, setFilterBy] = useState<Dropdown>(Dropdown.Active);
+  const [filterBy, setFilterBy] = useState<Filter>(Filter.Active);
 
   const filteredBooks = filterBooks(books, filterBy);
   const totalBooks = books.length;

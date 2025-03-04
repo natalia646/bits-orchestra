@@ -1,12 +1,12 @@
 import { Book } from "../types/Book.type";
-import { Dropdown } from "../types/Dropdown.type";
+import { Filter } from "../types/Filter.type";
 
-export const filterBooks = (books: Book[], filterBy: Dropdown) => {
+export const filterBooks = (books: Book[], filterBy: Filter) => {
   return books.filter((book) => {
     switch (filterBy) {
-      case Dropdown.Active:
+      case Filter.Active:
         return book.active;
-      case Dropdown.Deactivated:
+      case Filter.Deactivated:
         return !book.active;
       default:
         return book;

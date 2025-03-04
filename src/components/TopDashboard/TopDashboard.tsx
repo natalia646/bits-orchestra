@@ -1,8 +1,8 @@
-import { Dropdown } from "../../types/Dropdown.type";
+import { Filter } from "../../types/Filter.type";
 
 type Props = {
-  filterBy: Dropdown;
-  setFilterBy: React.Dispatch<React.SetStateAction<Dropdown>>;
+  filterBy: Filter;
+  setFilterBy: React.Dispatch<React.SetStateAction<Filter>>;
   total: number;
   filtered: number;
 };
@@ -18,14 +18,14 @@ export const TopDashboard: React.FC<Props> = ({
       <label>
         <select
           value={filterBy}
-          onChange={(e) => setFilterBy(e.target.value as Dropdown)}>
-          {Object.keys(Dropdown).map((key) => (
+          onChange={(e) => setFilterBy(e.target.value as Filter)}>
+          {Object.keys(Filter).map((key) => (
             <option value={key} key={key}>
               Show {key}
             </option>
           ))}
         </select>
-        {filterBy !== Dropdown.All && `Showing ${filtered} of ${total}`}
+        Showing {filtered} of {total}
       </label>
     </section>
   );
