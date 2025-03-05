@@ -1,0 +1,25 @@
+@use "../../styles/constants";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    border: 1px solid constants.$table_text_color;
+    padding: 5px;
+  }
+
+  th {
+    border: 1px solid constants.$table_head_color;
+    padding: 5px;
+  }
+
+  &__head {
+    background-color: constants.$table_bg_head;
+    color: constants.$table_head_color;
+  }
+
+  &__column {
+    border: 0.5px solid constants.$table_head_color;
+  }
+}

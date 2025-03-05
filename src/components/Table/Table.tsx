@@ -1,6 +1,7 @@
 import { columns } from "../../constants/constants";
 import { Book } from "../../types/Book.type";
 import { BookRow } from "../Book/Book";
+import s from "./Table.module.scss";
 
 type Props = {
   books: Book[];
@@ -8,11 +9,13 @@ type Props = {
 
 export const Table: React.FC<Props> = ({ books }) => {
   return (
-    <table>
-      <thead>
+    <table className={s.table}>
+      <thead className={s.table__head}>
         <tr>
           {columns.map((column) => (
-            <th key={column} scope="col">{column}</th>
+            <th className={s.table__column} key={column} scope="col">
+              {column}
+            </th>
           ))}
         </tr>
       </thead>

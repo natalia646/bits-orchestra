@@ -4,6 +4,7 @@ import { Action } from "../ActionButton/Action";
 import { PATH } from "../../constants/path";
 import { useBookContext } from "../../hooks/useBookContext";
 import { remove, updatePart } from "../../api/client/client";
+import s from "./Book.module.scss";
 
 type Props = {
   book: Book;
@@ -11,7 +12,7 @@ type Props = {
 
 export const BookRow: React.FC<Props> = ({ book }) => {
   const navigate = useNavigate();
-  
+
   const { setEditBookId, setBooks } = useBookContext();
   const { id, title, author, category, isbn, createdAt, modifiedAt, active } =
     book;
@@ -35,12 +36,12 @@ export const BookRow: React.FC<Props> = ({ book }) => {
 
     setBooks((prevBooks) => {
       const filtered = prevBooks.filter((book) => book.id !== id);
-      return [...filtered, updatedBook]
+      return [...filtered, updatedBook];
     });
   };
 
   return (
-    <tr key={id}>
+    <tr key={id} className={`${s.row} ${active ? "" : s.deactived}`}>
       <td>{title}</td>
       <td>{author}</td>
       <td>{category}</td>

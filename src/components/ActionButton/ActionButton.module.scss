@@ -1,0 +1,9 @@
+@use "../../styles/constants";
+
+.button {
+  background-color: constants.$table_bg_head;
+  border: none;
+  border-radius: 4px;
+  margin: 2px;
+  color: constants.$table_head_color;
+}

@@ -1,0 +1,12 @@
+@use "../../styles/constants";
+
+.row {
+  &:hover {
+    background-color: constants.$table_hover_color;
+  }
+}
+
+.deactived {
+  background-color: rgba(93, 93, 95, 0.203);
+  opacity: 0.5;
+}

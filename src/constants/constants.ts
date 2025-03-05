@@ -4,7 +4,7 @@ export const columns = [
   "Category",
   "ISBN",
   "Created At",
-  "Modified/Edited At",
+  "Edited At",
   "Actions",
 ];
 

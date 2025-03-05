@@ -1,0 +1,7 @@
+@use "../../styles/constants";
+
+.link {
+  text-decoration: none;
+  font-size: 18px;
+  color: constants.$table_text_color;
+}
