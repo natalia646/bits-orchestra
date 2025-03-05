@@ -8,9 +8,20 @@ export const columns = [
   "Actions",
 ];
 
-export const buttons = [
-  { action: "Edit", click: () => {} },
-  { action: "Delete", click: () => {} },
-  { action: "Deactivate", click: () => {} },
+export const categories = [
+  "Fiction",
+  "Non-Fiction",
+  "Mystery",
+  "Thriller",
+  "Fantasy",
+  "Science Fiction",
+  "Dystopian",
+  "Romance",
+  "Historical",
+  "Adventure",
+  "Biography",
+  "Philosophical",
+  "Classic",
+  "Poetry",
+  "Drama",
 ];
-

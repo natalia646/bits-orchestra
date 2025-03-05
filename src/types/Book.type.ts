@@ -8,3 +8,7 @@ export interface Book {
   modifiedAt: string;
   active: boolean;
 }
+
+export type CreatedBook = Pick<Book, "title" | "author" | "category" | "isbn">;
+
+export type UpdatedBook = Omit<Book, "id" | "createdAt" | "active">;
