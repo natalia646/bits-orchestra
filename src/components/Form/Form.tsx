@@ -4,6 +4,7 @@ import { useBookContext } from "../../hooks/useBookContext";
 import { useNavigate } from "react-router";
 import { PATH } from "../../constants/path";
 import * as client from "../../api/client/client";
+import s from './Form.module.scss'
 
 export const Form = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ export const Form = () => {
 
   return (
     <>
-      <form action="" onSubmit={onSubmit}>
+      <form action="" onSubmit={onSubmit} className={s.form}>
         <input
           type="text"
           placeholder="Book title"
