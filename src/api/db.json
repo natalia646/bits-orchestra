@@ -99,6 +99,16 @@
       "createdAt": "March 6, 2025 at 1:02 PM",
       "modifiedAt": "--",
       "active": true
+    },
+    {
+      "id": "f13d482a-1f79-48f7-a67d-c2a95bd34e8c",
+      "title": "",
+      "author": "",
+      "category": "",
+      "isbn": "",
+      "createdAt": "March 6, 2025 at 3:22 PM",
+      "modifiedAt": "--",
+      "active": true
     }
   ]
 }
