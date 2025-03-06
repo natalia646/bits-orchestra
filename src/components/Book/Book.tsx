@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useNavigate } from "react-router";
 import { Book } from "../../types/Book.type";
-import { Action } from "../ActionButton/Action";
+import { ActionButton } from "../ActionButton/ActionButton";
 import { PATH } from "../../constants/path";
 import { useBookContext } from "../../hooks/useBookContext";
 import { remove, updatePart } from "../../api/client/client";
@@ -76,9 +76,9 @@ export const BookRow: React.FC<Props> = ({ book }) => {
       <td>{modifiedAt}</td>
 
       <td>
-        <Action button={"Edit"} onClick={() => editBook(id)} />
-        <Action button={"Delete"} onClick={() => deleteBook(id)} />
-        <Action
+        <ActionButton button={"Edit"} onClick={() => editBook(id)} />
+        <ActionButton button={"Delete"} onClick={() => deleteBook(id)} />
+        <ActionButton
           button={active ? "Deactivate" : "Re-Activate"}
           onClick={() => deactivateBook(id)}
         />

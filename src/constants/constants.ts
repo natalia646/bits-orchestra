@@ -26,7 +26,7 @@ export const categories = [
   "Drama",
 ];
 
-export const dateOptions = {
+export const dateOptions: Intl.DateTimeFormatOptions  = {
   day: "numeric",
   month: "long",
   year: "numeric",

@@ -8,7 +8,7 @@ type Arg = {
   body?: Book;
 };
 
-export const fetchData = ({method = "CET", id = '', body }: Arg) => {
+export const fetchData = ({method = "GET", id = '', body }: Arg) => {
   return fetch(`${baseUrl}${id}`, {
     method,
     body: JSON.stringify(body),

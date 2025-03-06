@@ -155,7 +155,7 @@ export const Form = () => {
             required
             value={category}
             onChange={(e) =>
-              setFielsd((prev) => ({ ...prev, title: e.target.value }))
+              setFielsd((prev) => ({ ...prev, category: e.target.value }))
             }>
             {categories.map((categoryItem) => (
               <option key={categoryItem} value={categoryItem}>

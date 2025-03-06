@@ -15,9 +15,7 @@
    `npm install`
 4. Start the server on port 3000. Make sure this port is available to avoid errors:
   `npm run server`
-5. Open a new terminal, navigate to the bits-orchestra folder again, and run the project:
-   `cd bits-orchestra`
-6. Start the development server:
+5. Open a new terminal and start the development server:
    `npm run dev`
 7. Open the project in a browser on port 5173.
   Follow the link: [Local demo](http://localhost:5173/)
