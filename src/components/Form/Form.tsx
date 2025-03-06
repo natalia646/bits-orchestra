@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { categories } from "../../constants/constants";
 import { useBookContext } from "../../hooks/useBookContext";
 import { Input } from "./Input";
 import style from "./Form.module.scss";
 import { useSubmitForm } from "../../hooks/useSubmitForm";
 import { getInputs } from "../../utils/getInputs";
+import { SelectCategory } from "./SelectCategory";
 
 export const Form = () => {
   const { books, editBookId } = useBookContext();
@@ -38,10 +38,12 @@ export const Form = () => {
     }
   }, [bookToEdit, books, editBookId]);
 
-  const handleChange = (field: string, invalidKey: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFielsd((prev) => ({ ...prev, [field]: e.target.value }));
-    setInvalid((prev) => ({ ...prev, [invalidKey]: false }));
-  };
+  const handleChange =
+    (field: string, invalidKey: string) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFielsd((prev) => ({ ...prev, [field]: e.target.value }));
+      setInvalid((prev) => ({ ...prev, [invalidKey]: false }));
+    };
 
   const inputs = getInputs(
     { title, author, isbn },
@@ -49,42 +51,25 @@ export const Form = () => {
   );
 
   return (
-    <>
-      <form onSubmit={onSubmit} className={style.form}>
-        {inputs.map(
-          ({ type, placeholder, value, label, invalidKey, field, isValid }) => (
-            <Input
-              key={placeholder}
-              type={type}
-              placeholder={placeholder}
-              value={value}
-              label={label}
-              isValid={isValid}
-              onChange={handleChange(field, invalidKey)}
-            />
-          )
-        )}
+    <form onSubmit={onSubmit} className={style.form}>
+      {inputs.map(
+        ({ type, placeholder, value, label, invalidKey, field, isValid }) => (
+          <Input
+            key={placeholder}
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            label={label}
+            isValid={isValid}
+            onChange={handleChange(field, invalidKey)}
+          />
+        )
+      )}
+      <SelectCategory category={category} setFielsd={setFielsd} />
 
-        <label>
-          Select category
-          <select
-            id="categoties"
-            required
-            value={category}
-            onChange={(e) =>
-              setFielsd((prev) => ({ ...prev, category: e.target.value }))
-            }>
-            {categories.map((categoryItem) => (
-              <option key={categoryItem} value={categoryItem}>
-                {categoryItem}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button type="submit">
-          {editBookId !== "0" ? "Edit a Book" : "Add a book"}
-        </button>
-      </form>
-    </>
+      <button type="submit">
+        {editBookId !== "0" ? "Edit a Book" : "Add a book"}
+      </button>
+    </form>
   );
 };
