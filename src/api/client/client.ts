@@ -1,3 +1,4 @@
+import { dateOptions } from "../../constants/constants";
 import { Book, CreatedBook, UpdatedBook } from "../../types/Book.type";
 import { v4 as uuidv4 } from "uuid";
 // import { fetchData } from "../service/service";
@@ -18,21 +19,13 @@ export const create = (createdBook: CreatedBook) => {
   const { title, author, category, isbn } = createdBook;
   const date = new Date();
 
-  const options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
   const newBook: Book = {
     id: uuidv4(),
     title,
     author,
     category,
     isbn,
-    createdAt: date.toLocaleString("en-US", options),
+    createdAt: date.toLocaleString("en-US", dateOptions),
     modifiedAt: "--",
     active: true,
   };

@@ -47,7 +47,7 @@
       "category": "Romance",
       "isbn": "9780141439518",
       "createdAt": "30 January 2023, 11:10AM",
-      "modifiedAt": "March 6, 2025 at 3:04 AM",
+      "modifiedAt": "--",
       "active": true
     },
     {
@@ -61,16 +61,6 @@
       "active": false
     },
     {
-      "id": "7",
-      "title": "Moby-Dick",
-      "author": "Herman M.",
-      "category": "Adventure",
-      "isbn": "9780142437247",
-      "createdAt": "3 March 2021, 7:25AM",
-      "modifiedAt": "March 6, 2025 at 2:52 AM",
-      "active": true
-    },
-    {
       "id": "8",
       "title": "Brave New World",
       "author": "Aldous Huxley",
@@ -78,7 +68,7 @@
       "isbn": "9780060850524",
       "createdAt": "19 December 2020, 2:10PM",
       "modifiedAt": "5 January 2021, 12:40PM",
-      "active": true
+      "active": false
     },
     {
       "id": "9",
@@ -98,6 +88,16 @@
       "isbn": "9780486454115",
       "createdAt": "9 September 2017, 4:20PM",
       "modifiedAt": "11 October 2017, 9:50AM",
+      "active": false
+    },
+    {
+      "id": "9590d41d-7a9e-4ff0-823e-2e198641c69f",
+      "title": "dsds",
+      "author": "sds",
+      "category": "",
+      "isbn": "3",
+      "createdAt": "March 6, 2025 at 11:07 AM",
+      "modifiedAt": "--",
       "active": true
     }
   ]

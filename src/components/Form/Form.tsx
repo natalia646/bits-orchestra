@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { categories } from "../../constants/constants";
+import { categories, dateOptions } from "../../constants/constants";
 import { useBookContext } from "../../hooks/useBookContext";
 import { useNavigate } from "react-router";
 import { PATH } from "../../constants/path";
 import * as client from "../../api/client/client";
 import s from "./Form.module.scss";
+import { ToastStatus } from "../../types/Toast.type";
 
 export const Form = () => {
   const navigate = useNavigate();
@@ -14,43 +15,59 @@ export const Form = () => {
   const [isbn, setIsbn] = useState("");
   const [category, setCategory] = useState("");
 
-  const { books, setBooks, editBookId, setEditBookId } = useBookContext();
+  const { books, setBooks, editBookId, setEditBookId, setToast } =
+    useBookContext();
   const bookToEdit = books.find((book) => book.id === editBookId) || null;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    
-
     if (bookToEdit?.id === editBookId) {
       const date = new Date();
-
-      const options = {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-      };
 
       const updatedValue = {
         title,
         author,
         isbn,
         category,
-        modifiedAt: date.toLocaleString("en-US", options),
+        modifiedAt: date.toLocaleString("en-US", dateOptions),
       };
-
-      client.update(editBookId, updatedValue).then((updatedBook) =>
-        setBooks((prev) => {
-          const books = prev.filter((book) => book.id !== editBookId);
-          return [...books, updatedBook];
-        })
-      );
+      client
+        .update(editBookId, updatedValue)
+        .then((updatedBook) =>
+          setBooks((prev) => {
+            const books = prev.filter((book) => book.id !== editBookId);
+            return [...books, updatedBook];
+          })
+        )
+        .then(() =>
+          setToast({
+            status: ToastStatus.Success,
+            message: "Book successfully updated",
+          })
+        )
+        .catch(() =>
+          setToast({
+            status: ToastStatus.Error,
+            message: "Can't update the book",
+          })
+        );
     } else {
       client
         .create({ title, author, category, isbn })
-        .then((newBook) => setBooks((prev) => [...prev, newBook]));
+        .then((newBook) => setBooks((prev) => [...prev, newBook]))
+        .then(() =>
+          setToast({
+            status: ToastStatus.Success,
+            message: "Book successfully created",
+          })
+        )
+        .catch(() =>
+          setToast({
+            status: ToastStatus.Error,
+            message: "Can't create the book",
+          })
+        );
     }
     setEditBookId("0");
     navigate(PATH.Dashboard);

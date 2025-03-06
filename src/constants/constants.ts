@@ -25,3 +25,12 @@ export const categories = [
   "Poetry",
   "Drama",
 ];
+
+
+export const dateOptions = {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+};
