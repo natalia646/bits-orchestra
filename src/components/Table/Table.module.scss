@@ -1,8 +1,14 @@
 @use "../../styles/constants";
 
+
+.wrapper{
+  overflow-x: auto;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 800px;
 
   td {
     border: 1px solid constants.$table_text_color;

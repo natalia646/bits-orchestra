@@ -9,22 +9,24 @@ type Props = {
 
 export const Table: React.FC<Props> = ({ books }) => {
   return (
-    <table className={s.table}>
-      <thead className={s.table__head}>
-        <tr>
-          {columns.map((column) => (
-            <th className={s.table__column} key={column} scope="col">
-              {column}
-            </th>
-          ))}
-        </tr>
-      </thead>
+    <section className={s.wrapper}>
+      <table className={s.table}>
+        <thead className={s.table__head}>
+          <tr>
+            {columns.map((column) => (
+              <th className={s.table__column} key={column} scope="col">
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
 
-      <tbody>
-        {books.map((book) => (
-          <BookRow key={book.id} book={book} />
-        ))}
-      </tbody>
-    </table>
+        <tbody>
+          {books.map((book) => (
+            <BookRow key={book.id} book={book} />
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 };
