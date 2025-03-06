@@ -26,7 +26,7 @@ export const Toast = () => {
             [s.success]: toast.status === ToastStatus.Success,
             [s.error]: toast.status === ToastStatus.Error,
           })}>
-          <p>{toast.message}</p>
+          {toast.message}
         </div>
       )}
     </>

@@ -1,0 +1,17 @@
+@use "../../styles/constants";
+
+.footer {
+  height: 60px;
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+  background-color: constants.$table_bg_head;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: constants.$white_color;
+  font-size: 16px;
+  margin: 10px;
+}
