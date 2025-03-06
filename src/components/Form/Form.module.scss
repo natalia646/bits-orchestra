@@ -26,6 +26,8 @@
 
   label {
     margin-top: 12px;
+    display: flex;
+    flex-direction: column;
   }
 
   input::placeholder {

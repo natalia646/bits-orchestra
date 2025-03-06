@@ -23,9 +23,7 @@ export const Input: React.FC<Props> = ({
         value={value}
         onChange={onChange}
         required
-        className={isInvalid ? s.err_input : ""}
       />
-      {isInvalid && <span className={s.err_message}>Field can't be empty</span>}
     </label>
   );
 };
