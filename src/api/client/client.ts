@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 const baseUrl = "http://localhost:3000/books";
 
 export const getAll = (): Promise<Book[]> => {
-    // return fetchData({});
+  // return fetchData({});
   return fetch(baseUrl).then((data) => data.json());
 };
 
@@ -16,14 +16,24 @@ export const getOne = (id: string): Promise<Book> => {
 
 export const create = (createdBook: CreatedBook) => {
   const { title, author, category, isbn } = createdBook;
+  const date = new Date();
+
+  const options = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+
   const newBook: Book = {
     id: uuidv4(),
     title,
     author,
     category,
     isbn,
-    createdAt: "2",
-    modifiedAt: "2",
+    createdAt: date.toLocaleString("en-US", options),
+    modifiedAt: "--",
     active: true,
   };
 

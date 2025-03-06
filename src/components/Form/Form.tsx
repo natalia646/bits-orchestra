@@ -4,7 +4,7 @@ import { useBookContext } from "../../hooks/useBookContext";
 import { useNavigate } from "react-router";
 import { PATH } from "../../constants/path";
 import * as client from "../../api/client/client";
-import s from './Form.module.scss'
+import s from "./Form.module.scss";
 
 export const Form = () => {
   const navigate = useNavigate();
@@ -14,20 +14,31 @@ export const Form = () => {
   const [isbn, setIsbn] = useState("");
   const [category, setCategory] = useState("");
 
-
   const { books, setBooks, editBookId, setEditBookId } = useBookContext();
   const bookToEdit = books.find((book) => book.id === editBookId) || null;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    
+
     if (bookToEdit?.id === editBookId) {
+      const date = new Date();
+
+      const options = {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      };
+
       const updatedValue = {
         title,
         author,
         isbn,
         category,
-        modifiedAt: "4",
+        modifiedAt: date.toLocaleString("en-US", options),
       };
 
       client.update(editBookId, updatedValue).then((updatedBook) =>
