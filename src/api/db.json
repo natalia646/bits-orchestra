@@ -1,6 +1,16 @@
 {
   "books": [
     {
+      "id": "1",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "Classic",
+      "isbn": "9780743273565",
+      "createdAt": "12 March 2022, 8:35AM",
+      "modifiedAt": "13 March 2022, 1:48PM",
+      "active": true
+    },
+    {
       "id": "2",
       "title": "To Kill a Mockingbird",
       "author": "Harper Lee",
@@ -11,24 +21,84 @@
       "active": true
     },
     {
-      "id": "7252dbde-8c46-47ac-8ccf-68879068b7a9",
-      "title": "hkjhkewcfd",
-      "author": "kjhk",
-      "category": "",
-      "isbn": "6890",
-      "createdAt": "March 6, 2025 at 2:37 AM",
-      "modifiedAt": "March 6, 2025 at 2:38 AM",
+      "id": "3",
+      "title": "1984",
+      "author": "George Orwell",
+      "category": "Dystopian",
+      "isbn": "9780451524935",
+      "createdAt": "22 June 2020, 2:45PM",
+      "modifiedAt": "10 July 2021, 4:20PM",
+      "active": false
+    },
+    {
+      "id": "4",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "category": "Fiction",
+      "isbn": "9780316769488",
+      "createdAt": "15 August 2019, 9:00AM",
+      "modifiedAt": "20 September 2019, 3:55PM",
       "active": true
     },
     {
-      "id": "9b5832e1-48ac-431b-8eaa-6ee5b7a525a4",
-      "title": "fsvs",
-      "author": "svsf",
-      "category": "",
-      "isbn": "4",
-      "createdAt": "March 6, 2025 at 2:40 AM",
+      "id": "5",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Romance",
+      "isbn": "9780141439518",
+      "createdAt": "30 January 2023, 11:10AM",
+      "modifiedAt": "March 6, 2025 at 3:04 AM",
+      "active": true
+    },
+    {
+      "id": "6",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "category": "Fantasy",
+      "isbn": "9780547928227",
+      "createdAt": "8 November 2022, 5:30PM",
+      "modifiedAt": "15 November 2022, 6:00PM",
+      "active": false
+    },
+    {
+      "id": "7",
+      "title": "Moby-Dick",
+      "author": "Herman M.",
+      "category": "Adventure",
+      "isbn": "9780142437247",
+      "createdAt": "3 March 2021, 7:25AM",
+      "modifiedAt": "March 6, 2025 at 2:52 AM",
+      "active": true
+    },
+    {
+      "id": "8",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "category": "Science Fiction",
+      "isbn": "9780060850524",
+      "createdAt": "19 December 2020, 2:10PM",
+      "modifiedAt": "5 January 2021, 12:40PM",
+      "active": true
+    },
+    {
+      "id": "9",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "category": "Historical",
+      "isbn": "9781400079988",
+      "createdAt": "14 May 2018, 6:45AM",
       "modifiedAt": "--",
       "active": false
+    },
+    {
+      "id": "10",
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "category": "Philosophical",
+      "isbn": "9780486454115",
+      "createdAt": "9 September 2017, 4:20PM",
+      "modifiedAt": "11 October 2017, 9:50AM",
+      "active": true
     }
   ]
 }

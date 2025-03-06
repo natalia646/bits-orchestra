@@ -5,6 +5,9 @@
   flex-direction: column;
   max-width: 500px;
   margin-block: 25px 10px;
+  padding: 40px 20px;
+  background-color: constants.$input_bg_color;
+  border-radius: 10px;
 
   input,
   select,
@@ -13,10 +16,6 @@
     margin: 5px;
     border-radius: 3px;
     border: 0.3px solid constants.$table_text_color;
-  }
-  input,
-  select {
-    background-color: constants.$input_bg_color;
   }
 
   button {
