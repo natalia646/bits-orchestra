@@ -1,4 +1,4 @@
-import s from "./Form.module.scss";
+import style from "./Form.module.scss";
 
 type Props = {
   type: string;
@@ -26,10 +26,10 @@ export const Input: React.FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={isValid ? s.invalid_input : ""}
+        className={isValid ? style.invalid_input : ""}
       />
       {isValid && (
-        <span className={s.invalid_message}>Field can not be empty</span>
+        <span className={style.invalid_message}>Field can not be empty</span>
       )}
     </label>
   );

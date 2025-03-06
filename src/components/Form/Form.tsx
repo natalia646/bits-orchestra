@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
-import { categories, dateOptions } from "../../constants/constants";
+import { categories } from "../../constants/constants";
 import { useBookContext } from "../../hooks/useBookContext";
-import { useNavigate } from "react-router";
-import { PATH } from "../../constants/path";
-import { create, update } from "../../api/client/client";
-import s from "./Form.module.scss";
-import { ToastStatus } from "../../types/Toast.type";
 import { Input } from "./Input";
+import style from "./Form.module.scss";
+import { useSubmitForm } from "../../hooks/useSubmitForm";
+import { getInputs } from "../../utils/getInputs";
 
 export const Form = () => {
-  const navigate = useNavigate();
-  const [{ invalidTitle, invalidAuthor, invalidIsbn }, setInvalid] = useState({
-    invalidTitle: false,
-    invalidAuthor: false,
-    invalidIsbn: false,
-  });
+  const { books, editBookId } = useBookContext();
+  const bookToEdit = books.find((book) => book.id === editBookId) || null;
 
   const [{ title, author, isbn, category }, setFielsd] = useState({
     title: "",
@@ -23,80 +17,13 @@ export const Form = () => {
     category: "",
   });
 
-  const { books, editBookId, setBooks, setEditBookId, setToast } =
-    useBookContext();
-  const bookToEdit = books.find((book) => book.id === editBookId) || null;
+  const [{ invalidTitle, invalidAuthor, invalidIsbn }, setInvalid] = useState({
+    invalidTitle: false,
+    invalidAuthor: false,
+    invalidIsbn: false,
+  });
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (title === "") {
-      setInvalid((prev) => ({ ...prev, invalidTitle: true }));
-
-      return;
-    }
-
-    if (author === "") {
-      setInvalid((prev) => ({ ...prev, invalidAuthor: true }));
-
-      return;
-    }
-
-    if (isbn === "") {
-      setInvalid((prev) => ({ ...prev, invalidIsbn: true }));
-
-      return;
-    }
-
-    if (bookToEdit?.id === editBookId) {
-      const date = new Date();
-
-      const updatedValue = {
-        title,
-        author,
-        isbn,
-        category,
-        modifiedAt: date.toLocaleString("en-US", dateOptions),
-      };
-
-      update(editBookId, updatedValue)
-        .then((updatedBook) =>
-          setBooks((prev) => {
-            const books = prev.filter((book) => book.id !== editBookId);
-            return [...books, updatedBook];
-          })
-        )
-        .then(() =>
-          setToast({
-            status: ToastStatus.Success,
-            message: "Book successfully updated",
-          })
-        )
-        .catch(() =>
-          setToast({
-            status: ToastStatus.Error,
-            message: "Can't update the book",
-          })
-        );
-    } else {
-      create({ title, author, category, isbn })
-        .then((newBook) => setBooks((prev) => [...prev, newBook]))
-        .then(() =>
-          setToast({
-            status: ToastStatus.Success,
-            message: "Book successfully created",
-          })
-        )
-        .catch(() =>
-          setToast({
-            status: ToastStatus.Error,
-            message: "Can't create the book",
-          })
-        );
-    }
-    setEditBookId("0");
-    navigate(PATH.Dashboard);
-  };
+  const onSubmit = useSubmitForm({ title, author, isbn, category }, setInvalid);
 
   useEffect(() => {
     if (editBookId !== "0") {
@@ -111,42 +38,32 @@ export const Form = () => {
     }
   }, [bookToEdit, books, editBookId]);
 
+  const handleChange = (field: string, invalidKey: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFielsd((prev) => ({ ...prev, [field]: e.target.value }));
+    setInvalid((prev) => ({ ...prev, [invalidKey]: false }));
+  };
+
+  const inputs = getInputs(
+    { title, author, isbn },
+    { invalidTitle, invalidAuthor, invalidIsbn }
+  );
+
   return (
     <>
-      <form action="" onSubmit={onSubmit} className={s.form}>
-        <Input
-          type={"text"}
-          placeholder={"The Great Gatsby"}
-          value={title}
-          label={"Book title"}
-          isValid={invalidTitle}
-          onChange={(e) => {
-            setFielsd((prev) => ({ ...prev, title: e.target.value }));
-            setInvalid((prev) => ({ ...prev, invalidTitle: false }));
-          }}
-        />
-        <Input
-          type={"text"}
-          placeholder={"F. Scott Fitzgerald"}
-          value={author}
-          label={"Author"}
-          isValid={invalidAuthor}
-          onChange={(e) => {
-            setFielsd((prev) => ({ ...prev, author: e.target.value }));
-            setInvalid((prev) => ({ ...prev, invalidAuthor: false }));
-          }}
-        />
-        <Input
-          type={"number"}
-          placeholder={"9780743273565"}
-          value={isbn}
-          label={"ISBN"}
-          isValid={invalidIsbn}
-          onChange={(e) => {
-            setFielsd((prev) => ({ ...prev, isbn: e.target.value }));
-            setInvalid((prev) => ({ ...prev, invalidIsbn: false }))
-          }}
-        />
+      <form onSubmit={onSubmit} className={style.form}>
+        {inputs.map(
+          ({ type, placeholder, value, label, invalidKey, field, isValid }) => (
+            <Input
+              key={placeholder}
+              type={type}
+              placeholder={placeholder}
+              value={value}
+              label={label}
+              isValid={isValid}
+              onChange={handleChange(field, invalidKey)}
+            />
+          )
+        )}
 
         <label>
           Select category

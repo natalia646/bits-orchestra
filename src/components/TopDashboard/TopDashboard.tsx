@@ -1,5 +1,5 @@
 import { Filter } from "../../types/Filter.type";
-import s from "./TopDashboard.module.scss";
+import style from "./TopDashboard.module.scss";
 
 type Props = {
   filterBy: Filter;
@@ -16,9 +16,9 @@ export const TopDashboard: React.FC<Props> = ({
 }) => {
   return (
     <section>
-      <label className={s.dachboard}>
+      <label className={style.dachboard}>
         <select
-          className={s.select}
+          className={style.select}
           value={filterBy}
           onChange={(e) => setFilterBy(e.target.value as Filter)}>
           {Object.keys(Filter).map((key) => (

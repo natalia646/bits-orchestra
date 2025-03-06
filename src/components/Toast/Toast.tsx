@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import s from "./Toast.module.scss";
 import { useBookContext } from "../../hooks/useBookContext";
 import { ToastStatus } from "../../types/Toast.type";
+import style from "./Toast.module.scss";
 import cn from "classnames";
 
 export const Toast = () => {
@@ -27,9 +27,9 @@ export const Toast = () => {
     <>
       {isToast && (
         <div
-          className={cn(s.toast_message, {
-            [s.success]: toast.status === ToastStatus.Success,
-            [s.error]: toast.status === ToastStatus.Error,
+          className={cn(style.toast_message, {
+            [style.success]: toast.status === ToastStatus.Success,
+            [style.error]: toast.status === ToastStatus.Error,
           })}>
           {toast.message}
         </div>

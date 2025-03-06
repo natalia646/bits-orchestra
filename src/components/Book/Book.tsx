@@ -5,7 +5,7 @@ import { ActionButton } from "../ActionButton/ActionButton";
 import { PATH } from "../../constants/path";
 import { useBookContext } from "../../hooks/useBookContext";
 import { remove, updatePart } from "../../api/client/client";
-import s from "./Book.module.scss";
+import style from "./Book.module.scss";
 import { ToastStatus } from "../../types/Toast.type";
 
 type Props = {
@@ -28,10 +28,7 @@ export const BookRow: React.FC<Props> = ({ book }) => {
     try {
       await remove(id);
 
-      setBooks((prevBooks) => {
-        const filtered = prevBooks.filter((book) => book.id !== id);
-        return [...filtered];
-      });
+      setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
 
       setToast({
         status: ToastStatus.Success,
@@ -49,10 +46,10 @@ export const BookRow: React.FC<Props> = ({ book }) => {
     try {
       const updatedBook = await updatePart(id);
 
-      setBooks((prevBooks) => {
-        const filtered = prevBooks.filter((book) => book.id !== id);
-        return [...filtered, updatedBook];
-      });
+      setBooks((prevBooks) => [
+        ...prevBooks.filter((book) => book.id !== id),
+        updatedBook,
+      ]);
 
       setToast({
         status: ToastStatus.Success,
@@ -66,22 +63,26 @@ export const BookRow: React.FC<Props> = ({ book }) => {
     }
   };
 
+  const rows = [title, author, category, isbn, createdAt, modifiedAt];
+  const actions = [
+    { label: "Edit", action: () => editBook(id) },
+    { label: "Delete", action: () => deleteBook(id) },
+    {
+      label: active ? "Deactivate" : "Re-Activate",
+      action: () => deactivateBook(id),
+    },
+  ];
+
   return (
-    <tr key={id} className={`${s.row} ${active ? "" : s.deactived}`}>
-      <td>{title}</td>
-      <td>{author}</td>
-      <td>{category}</td>
-      <td>{isbn}</td>
-      <td>{createdAt}</td>
-      <td>{modifiedAt}</td>
+    <tr key={id} className={`${style.row} ${active ? "" : style.deactived}`}>
+      {rows.map((row) => (
+        <td>{row}</td>
+      ))}
 
       <td>
-        <ActionButton button={"Edit"} onClick={() => editBook(id)} />
-        <ActionButton button={"Delete"} onClick={() => deleteBook(id)} />
-        <ActionButton
-          button={active ? "Deactivate" : "Re-Activate"}
-          onClick={() => deactivateBook(id)}
-        />
+        {actions.map(({ label, action }) => (
+          <ActionButton key={label} button={label} onClick={action} />
+        ))}
       </td>
     </tr>
   );

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router";
 import { PATH } from "../../constants/path";
-import s from "./Navigation.module.scss";
+import style from "./Navigation.module.scss";
 
 export const Navigation = () => {
   const { pathname } = useLocation();
@@ -8,11 +8,11 @@ export const Navigation = () => {
   return (
     <header>
       {pathname === PATH.AddBook ? (
-        <Link className={s.link} to={PATH.Dashboard}>
+        <Link className={style.link} to={PATH.Dashboard}>
           Dashboard
         </Link>
       ) : (
-        <Link className={s.link} to={PATH.AddBook}>
+        <Link className={style.link} to={PATH.AddBook}>
           Add a Book
         </Link>
       )}
