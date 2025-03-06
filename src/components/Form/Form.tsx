@@ -119,20 +119,22 @@ export const Form = () => {
           }
         />
 
-        <label htmlFor="categoties">Select category</label>
-        <select
-          id="categoties"
-          required
-          value={category}
-          onChange={(e) =>
-            setFielsd((prev) => ({ ...prev, title: e.target.value }))
-          }>
-          {categories.map((categoryItem) => (
-            <option key={categoryItem} value={categoryItem}>
-              {categoryItem}
-            </option>
-          ))}
-        </select>
+        <label>
+          Select category
+          <select
+            id="categoties"
+            required
+            value={category}
+            onChange={(e) =>
+              setFielsd((prev) => ({ ...prev, title: e.target.value }))
+            }>
+            {categories.map((categoryItem) => (
+              <option key={categoryItem} value={categoryItem}>
+                {categoryItem}
+              </option>
+            ))}
+          </select>
+        </label>
         <button type="submit">
           {editBookId !== "0" ? "Edit a Book" : "Add a book"}
         </button>

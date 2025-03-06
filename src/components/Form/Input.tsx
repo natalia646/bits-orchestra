@@ -14,8 +14,8 @@ export const Input: React.FC<Props> = ({
   onChange,
 }) => {
   return (
-    <>
-      <label htmlFor={label}>{label}</label>
+    <label>
+      {label}
       <input
         id={label}
         type={type}
@@ -23,7 +23,9 @@ export const Input: React.FC<Props> = ({
         value={value}
         onChange={onChange}
         required
+        className={isInvalid ? s.err_input : ""}
       />
-    </>
+      {isInvalid && <span className={s.err_message}>Field can't be empty</span>}
+    </label>
   );
 };
