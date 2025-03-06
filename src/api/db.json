@@ -71,16 +71,6 @@
       "active": true
     },
     {
-      "id": "8",
-      "title": "Brave New World",
-      "author": "Aldous Huxley",
-      "category": "Science Fiction",
-      "isbn": "9780060850524",
-      "createdAt": "December 19, 2020 at 2:10 PM",
-      "modifiedAt": "January 5, 2021 at 12:40 PM",
-      "active": true
-    },
-    {
       "id": "9",
       "title": "War and Peace",
       "author": "Leo Tolstoy",
