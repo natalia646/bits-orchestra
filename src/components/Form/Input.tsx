@@ -1,8 +1,11 @@
+import s from "./Form.module.scss";
+
 type Props = {
   type: string;
   placeholder: string;
   label: string;
   value: string;
+  isValid: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
@@ -11,6 +14,7 @@ export const Input: React.FC<Props> = ({
   placeholder,
   value,
   label,
+  isValid,
   onChange,
 }) => {
   return (
@@ -22,8 +26,11 @@ export const Input: React.FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        required
+        className={isValid ? s.invalid_input : ""}
       />
+      {isValid && (
+        <span className={s.invalid_message}>Field can not be empty</span>
+      )}
     </label>
   );
 };

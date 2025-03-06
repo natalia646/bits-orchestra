@@ -10,6 +10,11 @@ import { Input } from "./Input";
 
 export const Form = () => {
   const navigate = useNavigate();
+  const [{ invalidTitle, invalidAuthor, invalidIsbn }, setInvalid] = useState({
+    invalidTitle: false,
+    invalidAuthor: false,
+    invalidIsbn: false,
+  });
 
   const [{ title, author, isbn, category }, setFielsd] = useState({
     title: "",
@@ -18,12 +23,30 @@ export const Form = () => {
     category: "",
   });
 
-  const { books, setBooks, editBookId, setEditBookId, setToast } =
+  const { books, editBookId, setBooks, setEditBookId, setToast } =
     useBookContext();
   const bookToEdit = books.find((book) => book.id === editBookId) || null;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (title === "") {
+      setInvalid((prev) => ({ ...prev, invalidTitle: true }));
+
+      return;
+    }
+
+    if (author === "") {
+      setInvalid((prev) => ({ ...prev, invalidAuthor: true }));
+
+      return;
+    }
+
+    if (isbn === "") {
+      setInvalid((prev) => ({ ...prev, invalidIsbn: true }));
+
+      return;
+    }
 
     if (bookToEdit?.id === editBookId) {
       const date = new Date();
@@ -96,27 +119,33 @@ export const Form = () => {
           placeholder={"The Great Gatsby"}
           value={title}
           label={"Book title"}
-          onChange={(e) =>
-            setFielsd((prev) => ({ ...prev, title: e.target.value }))
-          }
+          isValid={invalidTitle}
+          onChange={(e) => {
+            setFielsd((prev) => ({ ...prev, title: e.target.value }));
+            setInvalid((prev) => ({ ...prev, invalidTitle: false }));
+          }}
         />
         <Input
           type={"text"}
           placeholder={"F. Scott Fitzgerald"}
           value={author}
           label={"Author"}
-          onChange={(e) =>
-            setFielsd((prev) => ({ ...prev, author: e.target.value }))
-          }
+          isValid={invalidAuthor}
+          onChange={(e) => {
+            setFielsd((prev) => ({ ...prev, author: e.target.value }));
+            setInvalid((prev) => ({ ...prev, invalidAuthor: false }));
+          }}
         />
         <Input
           type={"number"}
           placeholder={"9780743273565"}
           value={isbn}
           label={"ISBN"}
-          onChange={(e) =>
-            setFielsd((prev) => ({ ...prev, isbn: e.target.value }))
-          }
+          isValid={invalidIsbn}
+          onChange={(e) => {
+            setFielsd((prev) => ({ ...prev, isbn: e.target.value }));
+            setInvalid((prev) => ({ ...prev, invalidIsbn: false }))
+          }}
         />
 
         <label>

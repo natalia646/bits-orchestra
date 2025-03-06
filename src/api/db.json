@@ -6,8 +6,8 @@
       "author": "F. Scott Fitzgerald",
       "category": "Classic",
       "isbn": "9780743273565",
-      "createdAt": "12 March 2022, 8:35AM",
-      "modifiedAt": "13 March 2022, 1:48PM",
+      "createdAt": "March 12, 2022 at 8:35 AM",
+      "modifiedAt": "March 13, 2022 at 1:48 PM",
       "active": true
     },
     {
@@ -16,7 +16,7 @@
       "author": "Harper Lee",
       "category": "Fiction",
       "isbn": "9780061120084",
-      "createdAt": "5 April 2021, 10:15AM",
+      "createdAt": "April 5, 2021 at 10:15 AM",
       "modifiedAt": "--",
       "active": true
     },
@@ -26,9 +26,9 @@
       "author": "George Orwell",
       "category": "Dystopian",
       "isbn": "9780451524935",
-      "createdAt": "22 June 2020, 2:45PM",
-      "modifiedAt": "10 July 2021, 4:20PM",
-      "active": true
+      "createdAt": "June 22, 2020 at 2:45 PM",
+      "modifiedAt": "July 10, 2021 at 4:20 PM",
+      "active": false
     },
     {
       "id": "4",
@@ -36,8 +36,18 @@
       "author": "J.D. Salinger",
       "category": "Fiction",
       "isbn": "9780316769488",
-      "createdAt": "15 August 2019, 9:00AM",
-      "modifiedAt": "20 September 2019, 3:55PM",
+      "createdAt": "August 15, 2019 at 9:00 AM",
+      "modifiedAt": "September 20, 2019 at 3:55 PM",
+      "active": true
+    },
+    {
+      "id": "5",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Romance",
+      "isbn": "9780141439518",
+      "createdAt": "January 30, 2023 at 11:10 AM",
+      "modifiedAt": "--",
       "active": true
     },
     {
@@ -46,18 +56,18 @@
       "author": "J.R.R. Tolkien",
       "category": "Fantasy",
       "isbn": "9780547928227",
-      "createdAt": "8 November 2022, 5:30PM",
-      "modifiedAt": "15 November 2022, 6:00PM",
-      "active": true
+      "createdAt": "November 8, 2022 at 5:30 PM",
+      "modifiedAt": "November 15, 2022 at 6:00 PM",
+      "active": false
     },
     {
-      "id": "8",
-      "title": "Brave New World",
-      "author": "Aldous Huxley",
-      "category": "Science Fiction",
-      "isbn": "9780060850524",
-      "createdAt": "19 December 2020, 2:10PM",
-      "modifiedAt": "5 January 2021, 12:40PM",
+      "id": "7",
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "category": "Adventure",
+      "isbn": "9780142437247",
+      "createdAt": "March 3, 2021 at 7:25 AM",
+      "modifiedAt": "--",
       "active": true
     },
     {
@@ -66,9 +76,9 @@
       "author": "Leo Tolstoy",
       "category": "Historical",
       "isbn": "9781400079988",
-      "createdAt": "14 May 2018, 6:45AM",
+      "createdAt": "May 14, 2018 at 6:45 AM",
       "modifiedAt": "--",
-      "active": true
+      "active": false
     },
     {
       "id": "10",
@@ -76,28 +86,8 @@
       "author": "Fyodor Dostoevsky",
       "category": "Philosophical",
       "isbn": "9780486454115",
-      "createdAt": "9 September 2017, 4:20PM",
-      "modifiedAt": "11 October 2017, 9:50AM",
-      "active": false
-    },
-    {
-      "id": "9590d41d-7a9e-4ff0-823e-2e198641c69f",
-      "title": "dsds",
-      "author": "sds",
-      "category": "",
-      "isbn": "3",
-      "createdAt": "March 6, 2025 at 11:07 AM",
-      "modifiedAt": "--",
-      "active": false
-    },
-    {
-      "id": "ca6aa736-986e-4769-8074-5c8cfd391ef2",
-      "title": "rtjrt",
-      "author": "rthj",
-      "category": "",
-      "isbn": "54673",
-      "createdAt": "March 6, 2025 at 1:02 PM",
-      "modifiedAt": "--",
+      "createdAt": "September 9, 2017 at 4:20 PM",
+      "modifiedAt": "October 11, 2017 at 9:50 AM",
       "active": true
     }
   ]

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import s from "./Toast.module.scss";
 import { useBookContext } from "../../hooks/useBookContext";
 import { ToastStatus } from "../../types/Toast.type";
@@ -6,21 +6,26 @@ import cn from "classnames";
 
 export const Toast = () => {
   const { toast, setToast } = useBookContext();
+  const [isToast, setIsToast] = useState(false);
 
   useEffect(() => {
-    // const timeout = setTimeout(() => {
-    //   setIsToast(true);
-    // }, 3000);
-    //   return () => {
-    //     clearTimeout(timeout);
-    //     setToast({ status: ToastStatus.Default, message: "" });
-    //     setIsToast(false);
-    //   };
+    if (toast.status !== ToastStatus.Default) {
+      setIsToast(true);
+
+      const timeout = setTimeout(() => {
+        setIsToast(false);
+        setToast({ status: ToastStatus.Default, message: "" });
+      }, 1500);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
   }, [toast, setToast]);
 
   return (
     <>
-      {toast.status !== ToastStatus.Default && (
+      {isToast && (
         <div
           className={cn(s.toast_message, {
             [s.success]: toast.status === ToastStatus.Success,
