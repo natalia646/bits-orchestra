@@ -1,0 +1,33 @@
+@use "./reset";
+@use "./constants";
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  margin: 13px;
+}
+
+header {
+  margin: 13px;
+}
+
+input,
+select,
+button {
+  font-family: "Montserrat", sans-serif;
+}

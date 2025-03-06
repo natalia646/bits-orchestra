@@ -1,0 +1,36 @@
+@use "../../styles/constants";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 20px;
+  background-color: constants.$input_bg_color;
+  border-radius: 10px;
+
+  input,
+  select,
+  button {
+    height: 30px;
+    margin: 5px;
+    border-radius: 3px;
+    border: none;
+  }
+
+  button {
+    background-color: constants.$table_text_color;
+    color: constants.$table_head_color;
+    height: 35px;
+    margin-top: 18px;
+  }
+
+  label {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input::placeholder {
+    color: constants.$table_hover_color;
+  }
+}

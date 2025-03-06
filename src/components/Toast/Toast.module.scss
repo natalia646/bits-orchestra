@@ -1,0 +1,29 @@
+@use '../../styles/constants';
+
+.toast_message {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  box-shadow: 10px 5px 5px 10px rgba(248, 242, 242, 0.714);
+  width: 100%;
+  max-width: 270px;
+  height: 100px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 100px;
+  border-top: 1.5px solid constants.$white_color;
+  border-bottom: 1.5px solid constants.$white_color;
+  border-right: none ;
+  border-left: 5px solid constants.$white_color;
+  background-color: constants.$white_color;
+  background-color: constants.$white_color;
+}
+.success {
+  color: green;
+  border-color: green;
+}
+
+.error {
+  color: constants.$red_color;
+  border-color: constants.$red_color;
+}
