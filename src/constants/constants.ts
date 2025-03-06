@@ -26,7 +26,6 @@ export const categories = [
   "Drama",
 ];
 
-
 export const dateOptions = {
   day: "numeric",
   month: "long",

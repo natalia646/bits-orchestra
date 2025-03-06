@@ -4,6 +4,7 @@
 html {
   scroll-behavior: smooth;
   height: 100%;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -23,4 +24,10 @@ main {
 
 header {
   margin: 13px;
+}
+
+input,
+select,
+button {
+  font-family: "Montserrat", sans-serif;
 }

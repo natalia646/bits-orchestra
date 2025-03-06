@@ -7,11 +7,12 @@
   width: 100vw;
   background-color: constants.$table_bg_head;
   text-align: center;
+  line-height: 60px;
 }
 
 .link {
   text-decoration: none;
   color: constants.$white_color;
   font-size: 16px;
-  margin: 10px;
+  padding: 10px;
 }

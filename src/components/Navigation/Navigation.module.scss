@@ -3,5 +3,9 @@
 .link {
   text-decoration: none;
   font-size: 18px;
-  color: constants.$table_text_color;
+  color: constants.$white-color;
+  padding: 6px;
+  background-color: constants.$table_bg_head;
+  border-radius: 6px;
+  box-shadow: 8px 5px 5px rgb(186, 184, 184);
 }

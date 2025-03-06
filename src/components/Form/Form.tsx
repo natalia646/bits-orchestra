@@ -3,17 +3,20 @@ import { categories, dateOptions } from "../../constants/constants";
 import { useBookContext } from "../../hooks/useBookContext";
 import { useNavigate } from "react-router";
 import { PATH } from "../../constants/path";
-import * as client from "../../api/client/client";
+import { create, update } from "../../api/client/client";
 import s from "./Form.module.scss";
 import { ToastStatus } from "../../types/Toast.type";
+import { Input } from "./Input";
 
 export const Form = () => {
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [isbn, setIsbn] = useState("");
-  const [category, setCategory] = useState("");
+  const [{ title, author, isbn, category }, setFielsd] = useState({
+    title: "",
+    author: "",
+    isbn: "",
+    category: "",
+  });
 
   const { books, setBooks, editBookId, setEditBookId, setToast } =
     useBookContext();
@@ -32,8 +35,8 @@ export const Form = () => {
         category,
         modifiedAt: date.toLocaleString("en-US", dateOptions),
       };
-      client
-        .update(editBookId, updatedValue)
+
+      update(editBookId, updatedValue)
         .then((updatedBook) =>
           setBooks((prev) => {
             const books = prev.filter((book) => book.id !== editBookId);
@@ -53,8 +56,7 @@ export const Form = () => {
           })
         );
     } else {
-      client
-        .create({ title, author, category, isbn })
+      create({ title, author, category, isbn })
         .then((newBook) => setBooks((prev) => [...prev, newBook]))
         .then(() =>
           setToast({
@@ -76,10 +78,12 @@ export const Form = () => {
   useEffect(() => {
     if (editBookId !== "0") {
       if (bookToEdit) {
-        setTitle(bookToEdit.title);
-        setAuthor(bookToEdit.author);
-        setIsbn(bookToEdit.isbn);
-        setCategory(bookToEdit.category);
+        setFielsd({
+          title: bookToEdit.title,
+          author: bookToEdit.author,
+          isbn: bookToEdit.isbn,
+          category: bookToEdit.category,
+        });
       }
     }
   }, [bookToEdit, books, editBookId]);
@@ -87,31 +91,42 @@ export const Form = () => {
   return (
     <>
       <form action="" onSubmit={onSubmit} className={s.form}>
-        <input
-          type="text"
-          placeholder="Book title"
+        <Input
+          type={"text"}
+          placeholder={"The Great Gatsby"}
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
+          label={"Book title"}
+          onChange={(e) =>
+            setFielsd((prev) => ({ ...prev, title: e.target.value }))
+          }
         />
-        <input
-          type="text"
-          placeholder="Author"
+        <Input
+          type={"text"}
+          placeholder={"F. Scott Fitzgerald"}
           value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
+          label={"Author"}
+          onChange={(e) =>
+            setFielsd((prev) => ({ ...prev, author: e.target.value }))
+          }
         />
-        <input
-          type="number"
-          placeholder="ISBN"
+        <Input
+          type={"number"}
+          placeholder={"9780743273565"}
           value={isbn}
-          onChange={(e) => setIsbn(e.target.value)}
-          required
+          label={"ISBN"}
+          onChange={(e) =>
+            setFielsd((prev) => ({ ...prev, isbn: e.target.value }))
+          }
         />
+
+        <label htmlFor="categoties">Select category</label>
         <select
+          id="categoties"
           required
           value={category}
-          onChange={(e) => setCategory(e.target.value)}>
+          onChange={(e) =>
+            setFielsd((prev) => ({ ...prev, title: e.target.value }))
+          }>
           {categories.map((categoryItem) => (
             <option key={categoryItem} value={categoryItem}>
               {categoryItem}
