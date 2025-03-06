@@ -4,7 +4,7 @@ import { Book } from "../../types/Book.type";
 import { ActionButton } from "../ActionButton/ActionButton";
 import { PATH } from "../../constants/path";
 import { useBookContext } from "../../hooks/useBookContext";
-import { remove, updatePart } from "../../api/client/client";
+import { removeBook, updatePart } from "../../api/client/client";
 import style from "./Book.module.scss";
 import { ToastStatus } from "../../types/Toast.type";
 
@@ -26,7 +26,7 @@ export const BookRow: React.FC<Props> = ({ book }) => {
 
   const deleteBook = async (id: string) => {
     try {
-      await remove(id);
+      await removeBook(id);
 
       setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
 

@@ -1,7 +1,7 @@
 import { useBookContext } from "./useBookContext";
 import { useNavigate } from "react-router";
 import { dateOptions } from "../constants/constants";
-import { create, update } from "../api/client/client";
+import { createBook, updateBook } from "../api/client/client";
 import { ToastStatus } from "../types/Toast.type";
 import { PATH } from "../constants/path";
 import { CreatedBook } from "../types/Book.type";
@@ -16,8 +16,6 @@ export const useSubmitForm = (
     }>
   >
 ) => {
-
-    
   const { title, author, isbn, category } = values;
   const navigate = useNavigate();
 
@@ -57,7 +55,7 @@ export const useSubmitForm = (
         modifiedAt: date.toLocaleString("en-US", dateOptions),
       };
 
-      update(editBookId, updatedValue)
+      updateBook(editBookId, updatedValue)
         .then((updatedBook) =>
           setBooks((prev) => {
             const books = prev.filter((book) => book.id !== editBookId);
@@ -77,7 +75,7 @@ export const useSubmitForm = (
           })
         );
     } else {
-      create({ title, author, category, isbn })
+      createBook({ title, author, category, isbn })
         .then((newBook) => setBooks((prev) => [...prev, newBook]))
         .then(() =>
           setToast({

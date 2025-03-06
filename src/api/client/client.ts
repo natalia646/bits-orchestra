@@ -12,7 +12,7 @@ export const getOne = (id: string): Promise<Book> => {
   return fetchData({ id: `/${id}` });
 };
 
-export const create = (createdBook: CreatedBook) => {
+export const createBook = (createdBook: CreatedBook) => {
   const { title, author, category, isbn } = createdBook;
   const date = new Date();
 
@@ -30,7 +30,7 @@ export const create = (createdBook: CreatedBook) => {
   return fetchData({ method: "POST", body: newBook });
 };
 
-export const update = async (id: string, updatedValue: UpdatedBook) => {
+export const updateBook = async (id: string, updatedValue: UpdatedBook) => {
   const bookToUpdate = await getOne(id);
   const updatedBook = Object.assign(bookToUpdate, updatedValue);
 
@@ -44,6 +44,6 @@ export const updatePart = async (id: string) => {
   return fetchData({ id: `/${id}`, method: "PATCH", body: bookToUpdate });
 };
 
-export const remove = async (id: string) => {
+export const removeBook = async (id: string) => {
   return fetchData({ id: `/${id}`, method: "DELETE" });
 };

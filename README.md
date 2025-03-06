@@ -1,12 +1,12 @@
 # Test Task
 
-# Techlogis
+# Tech Stack
 - React
 - TypeScript
 - SCSS
 - Vite
 
-## How run the project
+## How to run the project
 1. Clone the repository:
    `git clone https://github.com/natalia646/bits-orchestra.git`
 2. Navigate to the project folder:
